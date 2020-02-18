@@ -5,7 +5,7 @@ class Virus {
     this.y = y;
     this.size = size;
 
-    this.color = "rgba(200, 50, 255, 1)";
+    this.color = "#E91E63"; //"rgba(200, 50, 255, 1)";
 
     this.tetha = Math.random() * Math.PI * 2;
     this.phi = Math.acos(Math.random() * 2 - 1);

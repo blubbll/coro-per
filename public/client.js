@@ -40,7 +40,7 @@ const applyData = count => {
   console.debug("updated count", count);
   $(
     "#infected"
-  ).innerHTML = `${perc}%<span class="small">(${count.infected}/${ppl}</span>`;
+  ).innerHTML = `${perc}%<br/><span class="small">(${count.infected} of ${ppl} people)</span>`;
 };
 
 const rejoiner = setInterval(() => {
