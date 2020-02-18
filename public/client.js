@@ -43,6 +43,8 @@ const applyData = count => {
   ).innerHTML = `${perc}%<br/><span class="small">(${count.infected} of ${ppl} people)</span>`;
 };
 
+const updateLocal = setInterval(() => applyData(window.count), 1399);
+
 const rejoiner = setInterval(() => {
   const rejoin = () => join(true);
   evtSource.readyState !== EventSource.OPEN
