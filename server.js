@@ -50,6 +50,7 @@ const count = {
 };
 
 const getCount = () => {
+  const oldCount = count;
   fetch("https://www.worldometers.info/coronavirus/")
     .then(res => res.text())
     .then(raw => {
@@ -73,7 +74,8 @@ const getCount = () => {
       }
     });
 
-  emitter.emit("event", {
+  //push updated count to clients
+  oldCount !== count && emitter.emit("event", {
     type: "infected-update",
     data: count
   });
