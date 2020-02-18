@@ -40,7 +40,7 @@ const applyData = count => {
 
   //update window count on real update only
   count !== window.count && [
-    console.debug("updated count", count),
+    console.debug(`${new Date()}: updated count`, count),
     (window.count = count)
   ];
   $(
