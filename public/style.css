@@ -63,12 +63,16 @@ footer {
   position: fixed !important;
   width: 100%;
   top: unset !important;
-  bottom: 0 !important;
+  bottom: 2rem !important;
   height: 3rem;
   padding: 0 2rem;
   text-transform: uppercase;
   font-family: virus;
   color: dimgray;
+  font-size: var(--size);
+}
+footer span {
+  font-size: 30%;
 }
 footer a {
   color: white;
