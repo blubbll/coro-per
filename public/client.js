@@ -34,10 +34,15 @@ const applyData = count => {
   var d2 = new Date(2020, 6, 1, 0, 0, 0, 0).getTime();
   var ppl = Math.round(7713468100 + ((d1 - d0) * 81330639) / (d2 - d0));
   ///////
-  window.count = count;
 
+  //calc percentage of total infected ppl
   const perc = (count.infected * 100) / ppl;
-  console.debug("updated count", count);
+
+  //update window count on real update only
+  count !== window.count && [
+    console.debug("updated count", count),
+    (window.count = count)
+  ];
   $(
     "#infected"
   ).innerHTML = `${perc}%<br/><span class="small">(${count.infected} of ${ppl} people)</span>`;
