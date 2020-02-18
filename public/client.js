@@ -28,7 +28,7 @@ fetch("/init")
   .then(json => applyData(json));
 
 const applyData = count => {
-  ///////
+  /////// ppl count by https://world-statistics.org/
   var d1 = new Date().getTime();
   var d0 = new Date(2019, 6, 1, 0, 0, 0, 0).getTime();
   var d2 = new Date(2020, 6, 1, 0, 0, 0, 0).getTime();
