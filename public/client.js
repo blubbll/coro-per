@@ -70,11 +70,12 @@ applyData = count => {
 //update ppl count
 const updateLocal = setInterval(() => applyData(window.count), 1399);
 
-//PLAY
-const pla = setInterval(() => {
-  document.hasFocus() && clearInterval(pla) && $("audio").play();
-}, 999);
-
-["click", "wheel", "mousemove"].forEach(evt =>
-  document.body.addEventListener(evt, () => $("audio").play(), false)
-);
+//AUDIO
+{
+  const au = $("audio");
+  au.volume = 0.5;
+  //PLAY
+  ["blur", "click", "wheel", "mousemove"].forEach(evt =>
+    document.body.addEventListener(evt, () => au.play(), false)
+  );
+}
