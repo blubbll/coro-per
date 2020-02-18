@@ -5,6 +5,7 @@
 
 :root {
   --size: calc(13vmin * 9 / 16);
+  --pünk: #E91E63;
 }
 
 * {
@@ -13,6 +14,7 @@
 
 body {
   margin: 0;
+  overflow: hidden;
   background-color: black;
 }
 
@@ -48,9 +50,10 @@ body {
   text-transform: uppercase;
   font-family: virus;
   text-align: center;
+  text-shadow: 0 0 2rem var(--pünk);
 }
 
-svg {
+#weirdFilter {
   display: none;
 }
 
@@ -70,10 +73,10 @@ svg {
 footer {
   position: fixed !important;
   width: 100%;
-  top: unset !important;
   bottom: 2rem !important;
   height: 3rem;
   padding: 0 2rem;
+  left: 0;
   text-transform: uppercase;
   font-family: virus;
   color: dimgray;
@@ -84,4 +87,12 @@ footer span {
 }
 footer a {
   color: white;
+}
+footer a:hover {
+  color: var(--pünk);
+}
+#haz {
+  fill: var(--pünk);
+  height: calc(var(--size) / 3);
+  width: auto;
 }
