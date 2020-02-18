@@ -19,6 +19,7 @@ body {
 }
 
 .content-canvas {
+  opacity: 0.75;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -93,6 +94,6 @@ footer a:hover {
 }
 #haz {
   fill: var(--pünk);
-  height: calc(var(--size) / 3);
+  height: calc(4vmin * 9 / 16);
   width: auto;
 }
