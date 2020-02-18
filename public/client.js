@@ -1,19 +1,24 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+let { applyData } = window;
+
+/* EVENTSOURCE */
 let evtSource = (window.evtSource = {});
 const join = force => {
   force && evtSource.close();
   evtSource = new EventSource(`./events`);
+
   evtSource.addEventListener(
-    "data",
+    "event",
     evt => {
       const payload = JSON.parse(evt.data);
-      const data = payload.data;
+      const DATA = payload.data;
+
       switch (payload.type) {
         case "infected-update":
           {
-            console.log(data);
+            applyData(DATA);
           }
           break;
       }
@@ -27,7 +32,7 @@ fetch("/init")
   .then(res => res.json())
   .then(json => applyData(json));
 
-const applyData = count => {
+applyData = count => {
   /////// ppl count by https://world-statistics.org/
   var d1 = new Date().getTime();
   var d0 = new Date(2019, 6, 1, 0, 0, 0, 0).getTime();
@@ -52,7 +57,9 @@ const updateLocal = setInterval(() => applyData(window.count), 1399);
 
 const rejoiner = setInterval(() => {
   const rejoin = () => join(true);
-  evtSource.readyState !== EventSource.OPEN
+  evtSource.readyState === EventSource.CLOSED
     ? [console.warn("No connection, rejoining..."), rejoin()]
-    : console.debug("Connection ok :)");
+    : console.debug(
+        `Connection ${evtSource.readyState === 0 ? "waiting..." : "ok :)"}`
+      );
 }, 9999);

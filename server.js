@@ -9,7 +9,8 @@ const //imports
 //config emitter
 const emitter = new EventEmitter();
 
-app.get(`/events`, (req, res) => {
+app.get("/events", (req, res) => {
+  console.log("New client");
   res.writeHead(200, {
     "Content-Type": "text/event-stream",
     "Cache-Control": "no-cache",
@@ -32,6 +33,7 @@ app.get(`/events`, (req, res) => {
 
   // Clear heartbeat and listener
   req.on("close", () => {
+    console.log("Client disconnected");
     clearInterval(hbt);
     emitter.removeListener("event", onEvent);
   });
@@ -72,12 +74,26 @@ const getCount = () => {
     });
 
   emitter.emit("event", {
-    type: " infected-update",
+    type: "infected-update",
     data: count
   });
 };
 
-getCount();
+/*
+//debug, delete me maybe
+let i = 0;
+setInterval(() => {
+  count.dead = i;
+  i++;
+  emitter.emit("event", {
+    type: "infected-update",
+    data: count
+  });
+}, 999);
+*/
+
+//first init of data
+setTimeout(getCount);
 
 //interval to fetch infected-data from host
 const intervalMinutes = 30;
