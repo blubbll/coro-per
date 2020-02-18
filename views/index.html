@@ -1,0 +1,49 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>C☣️r☣️n🦠</title>
+    <meta name="description" content="A cool thing made with Glitch" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://glitch.com/edit/favicon-app.ico"
+      type="image/x-icon"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/bg.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="/client.js" defer></script>
+  </head>
+  <body>
+    <div class="content-canvas"><canvas id="canvas"></canvas></div>
+    <div id="infected" class="text">Loading...</div>
+    <svg id="weirdFilter">
+      <filter id="svgFilter">
+        <feturbulence
+          id="turbulence"
+          type="turbulence"
+          basefrequency="0.009"
+          numoctaves="5"
+        />
+        <fegaussianblur id="" in="SourceGraphic" stddeviation="5" />
+        <fedisplacementmap id="displacement" in="SourceGraphic" scale="2000" />
+      </filter>
+    </svg>
+  </body>
+</html>
