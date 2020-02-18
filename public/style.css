@@ -43,7 +43,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: var(--size);
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   mix-blend-mode: difference;
   text-transform: uppercase;
   font-family: virus;
@@ -59,14 +59,17 @@ svg {
   font-size: 50%;
 }
 
-footer{
-  position: fixed!important;
+footer {
+  position: fixed !important;
   width: 100%;
-  top: unset!important;
-  bottom: 0!important;
+  top: unset !important;
+  bottom: 0 !important;
   height: 3rem;
   padding: 0 2rem;
-    text-transform: uppercase;
-   font-family: virus;
+  text-transform: uppercase;
+  font-family: virus;
+  color: dimgray;
+}
+footer a {
   color: white;
 }
