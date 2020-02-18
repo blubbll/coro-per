@@ -4,7 +4,7 @@
   "//3": "updating this file will download and update your packages",
   "name": "hello-express",
   "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "description": "corona infected count",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -19,7 +19,7 @@
     "node": "10.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "https://github.com/blubbll/coro-per"
   },
   "license": "MIT",
   "keywords": [
