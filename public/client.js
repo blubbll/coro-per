@@ -76,6 +76,6 @@ const updateLocal = setInterval(() => applyData(window.count), 1399);
   au.volume = 0.5;
   //PLAY
   ["blur", "click", "wheel", "mousemove"].forEach(evt =>
-    document.body.addEventListener(evt, () => au.play(), false)
+    document.body.addEventListener(evt, () => document.hasFocus && au.play(), false)
   );
 }
