@@ -40,14 +40,13 @@ app.get("/events", (req, res) => {
 });
 
 app.get("/init", (req, res) => {
-  res.json(count);
+  res.json(count.infected);
 });
 
 const count = {
   infected: 0,
   dead: 0,
-  recovered: 0,
-  fresh: true
+  recovered: 0
 };
 
 const getCount = () => {
@@ -73,13 +72,15 @@ const getCount = () => {
             break;
         }
       }
-
+      console.log(count !== oldCount);
       //push updated count to clients
-      count !== oldCount &&
+      !count !== oldCount && [
+        console.error("emmited update"),
         emitter.emit("event", {
           type: "infected-update",
-          data: count
-        });
+          data: count.infected
+        })
+      ];
     });
 };
 
