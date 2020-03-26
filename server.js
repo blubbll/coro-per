@@ -40,7 +40,7 @@ app.get("/events", (req, res) => {
 });
 
 app.get("/init", (req, res) => {
-  res.json(count.infected);
+  res.json(count.infected-count.recovered);
 });
 
 const count = {
@@ -78,7 +78,7 @@ const getCount = () => {
         console.error("emmited update"),
         emitter.emit("event", {
           type: "infected-update",
-          data: count.infected
+          data: count.infected-count.recovered
         })
       ];
     });
